@@ -48,6 +48,21 @@ def checkStores():
         
         i += 1
 
+def checkStock(message):
+    for x in values:
+        # If there is a store with an xbox in stock
+        if(x == 1):
+            # Send mail
+            sendEmail(message)
+            print('Email sent...')
+            break
+        else:
+            print('No Stock')
+            # sendEmail(message)
+            break
+
+        break
+
 # Create the email message
 def createMessage():
     # Email message
@@ -104,8 +119,7 @@ def check_site(sc):
             
     checkStores()
     email = createMessage()
-    sendEmail(email)
-    print('Email sent...')
+    checkStock(email)
     clearValues()
     s.enter(time, 1, check_site, (sc,))
 
